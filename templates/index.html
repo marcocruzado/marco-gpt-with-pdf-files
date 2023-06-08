@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marco-GPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            padding: 5px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .navbar li {
+            margin-right: 10px;
+        }
+        
+        .navbar li a {
+            text-decoration: none;
+            color: #000000;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/ask">Preguntar</a></li>
+            <li><a href="/upload">Cargar Archivo</a></li>
+        </ul>
+    </div>
+    <h1>Marco-GPT</h1>
+    <form action="/ask" method="POST">
+        <label for="question">Escribe tu pregunta:</label>
+        <input type="text" name="question" id="question" required>
+        <input type="submit" value="Enviar">
+    </form>
+    {% if respuestas %}
+        <h2>Respuesta:</h2>
+        <ul>
+            {% for respuesta in respuestas %}
+                <li>{{ respuesta }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
